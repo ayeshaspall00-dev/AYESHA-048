@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Poppins', sans-serif;
+    background:linear-gradient(to right, #dbeafe, #eef5f9);
+}
+
+/* CENTERING */
+.container{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* CARD */
+.card{
+    background:white;
+    padding:30px;
+    width:350px;
+    border-radius:10px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* TITLE */
+.card h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+/* INPUT */
+.input-group{
+    margin-bottom:15px;
+}
+
+.input-group label{
+    font-size:14px;
+}
+
+.input-group input{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:14px;
+}
+
+/* PASSWORD BOX */
+.password-box{
+    display:flex;
+    align-items:center;
+    border:1px solid #ccc;
+    border-radius:5px;
+    padding-right:10px;
+    margin-top:5px;
+}
+
+.password-box input{
+    border:none;
+    flex:1;
+    padding:10px;
+}
+
+.password-box input:focus{
+    outline:none;
+}
+
+#toggle{
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* FOCUS */
+.input-group input:focus{
+    border-color:#177e9b;
+    outline:none;
+}
+
+/* CHECKBOX */
+.remember{
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+/* BUTTON */
+button{
+    width:100%;
+    padding:10px;
+    border:none;
+    background:#177e9b;
+    color:white;
+    font-size:16px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#125f75;
+}
+
+/* LINK */
+.forgot{
+    display:block;
+    text-align:center;
+    margin-top:10px;
+    font-size:14px;
+    color:#177e9b;
+    text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Student Login</h2>
+
+        <form onsubmit="return validateForm()">
+
+            <!-- USERNAME -->
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="username">
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="input-group">
+                <label>Password</label>
+
+                <div class="password-box">
+                    <input type="password" id="password">
+                    <span onclick="togglePassword()" id="toggle">👁️</span>
+                </div>
+            </div>
+
+            <!-- REMEMBER -->
+            <div class="remember">
+                <input type="checkbox"> Remember me
+            </div>
+
+            <!-- BUTTON -->
+            <button type="submit">Login</button>
+
+            <!-- LINK -->
+            <a href="#" class="forgot">Forgot Password?</a>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+function validateForm(){
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    if(user === "" || pass === ""){
+        alert("Please fill all fields");
+        return false;
+    }
+
+    alert("Login Successful (Demo)");
+    return true;
+}
+
+function togglePassword(){
+    let pass = document.getElementById("password");
+    let icon = document.getElementById("toggle");
+
+    if(pass.type === "password"){
+        pass.type = "text";
+        icon.textContent = "🙈";
+    } else {
+        pass.type = "password";
+        icon.textContent = "👁️";
+    }
+}
+</script>
+
+</body>
+</html>
